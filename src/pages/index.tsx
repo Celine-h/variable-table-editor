@@ -1,7 +1,45 @@
-import { observer } from 'mobx-react-lite';
+import { observer } from "mobx-react-lite";
+import styles from "./index.module.scss";
+import { Alert, Button, Input, Space, Typography } from "antd";
+import { EditableTable } from "@/components/EditableTable";
+import { tableStore } from "@/stores/tableStore";
 
 const HomePage = observer(() => {
-  return <div>hello umi</div>;
+  const store = tableStore;
+  return (
+    <div className={styles.container}>
+      <Typography.Title>Variable Table Editor</Typography.Title>
+      {store.errorMsg && (
+        <Alert
+          type="error"
+          description={store.errorMsg}
+          onClose={() => {
+            store.clearErrorMsg();
+          }}
+        />
+      )}
+
+      <Space>
+        <Button type="primary" onClick={() => store.addRow()}>
+          Add Row
+        </Button>
+        <Button type="default" danger onClick={() => store.deleteRow()}>
+          Delete Row
+        </Button>
+      </Space>
+
+      <EditableTable store={store} />
+      <Input.TextArea
+        value={store.importExportText}
+        autoSize={{ minRows: 6, maxRows: 12 }}
+        placeholder="Paste VAR...END_VAR text here"
+      />
+      <Space style={{ marginTop: 10 }}>
+        <Button>Import</Button>
+        <Button>Export</Button>
+      </Space>
+    </div>
+  );
 });
 
 export default HomePage;
