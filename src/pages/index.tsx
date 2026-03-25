@@ -19,7 +19,7 @@ const HomePage = observer(() => {
         />
       )}
 
-      <Space>
+      <Space style={{ marginBottom: 15 }}>
         <Button type="primary" onClick={() => store.addRow()}>
           Add Row
         </Button>
@@ -30,11 +30,12 @@ const HomePage = observer(() => {
 
       <EditableTable store={store} />
       <Input.TextArea
+        style={{ margin: "15px 0" }}
         value={store.importExportText}
         autoSize={{ minRows: 6, maxRows: 12 }}
         placeholder="Paste VAR...END_VAR text here"
       />
-      <Space style={{ marginTop: 10 }}>
+      <Space>
         <Button>Import</Button>
         <Button>Export</Button>
       </Space>

@@ -1,5 +1,10 @@
 import { makeAutoObservable } from "mobx";
-import type { VariableItem } from "@/types/variable";
+import type { DataType, VariableItem } from "@/types/variable";
+import {
+  normalizeBoolValue,
+  validateDefaultValue,
+  validateName,
+} from "@/utils/validators";
 
 function uid() {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -24,6 +29,7 @@ export class TableStore {
       defaultValue: "",
       comment: "",
     });
+    this.clearErrorMsg();
   }
 
   // 设置选中id
@@ -37,7 +43,71 @@ export class TableStore {
       this.errorMsg = "请选择一行后删除！";
     }
     this.rows = this.rows.filter((e) => e.id !== this.selectedRowId);
-    this.errorMsg = "";
+    this.clearErrorMsg();
+  }
+
+  // 更新name
+  updateName(id: string, name: string) {
+    const target = this.rows.find((e) => e.id === id);
+    if (!target) {
+      return false;
+    }
+
+    const err = validateName(name, this.rows, id);
+    if (err) {
+      this.setErrorMsg(err);
+      return false;
+    }
+    target.name = name.trim();
+    this.clearErrorMsg();
+    return true;
+  }
+
+  // 更新DataType
+  updateDataType(id: string, dataType: DataType) {
+    const target = this.rows.find((e) => e.id === id);
+    if (!target) return;
+    target.dataType = dataType;
+    target.defaultValue = this.getDefaultValueByDataType(dataType); // 填充默认值
+    this.clearErrorMsg();
+  }
+
+  // 根据数据类型设置默认值
+  getDefaultValueByDataType(dataType: DataType) {
+    return dataType === "BOOL" ? "TRUE" : "0";
+  }
+
+  // 更新默认值
+  updateDefaultValue(id: string, nextValue: string): boolean {
+    const target = this.rows.find((e) => e.id === id);
+    if (!target) {
+      return false;
+    }
+
+    const err = validateDefaultValue(target.dataType, nextValue);
+    if (err) {
+      this.setErrorMsg(err);
+      return false;
+    }
+
+    if (target.dataType === "BOOL") {
+      target.defaultValue = normalizeBoolValue(nextValue) as string;
+    } else if (target.dataType === "INT") {
+      target.defaultValue = String(Number(nextValue.trim()));
+    } else {
+      target.defaultValue = nextValue;
+    }
+
+    this.clearErrorMsg();
+    return true;
+  }
+
+  // 更新comment
+  updateComment(id: string, comment: string) {
+    const target = this.rows.find((e) => e.id === id);
+    if (!target) return
+
+    target.comment = comment;
   }
 
   clearErrorMsg() {
@@ -47,8 +117,6 @@ export class TableStore {
   setErrorMsg(msg: string) {
     this.errorMsg = msg;
   }
-
- 
 }
 
 export const tableStore = new TableStore();
