@@ -40,7 +40,8 @@ export class TableStore {
   // 删除行
   deleteRow() {
     if (!this.selectedRowId) {
-      this.errorMsg = "请选择一行后删除！";
+      this.errorMsg = "Please select a row to delete";
+      return
     }
     this.rows = this.rows.filter((e) => e.id !== this.selectedRowId);
     this.clearErrorMsg();

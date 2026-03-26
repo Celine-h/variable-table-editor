@@ -19,7 +19,7 @@ const HomePage = observer(() => {
         />
       )}
 
-      <Space style={{ marginBottom: 15 }}>
+      <Space style={{ margin: '15px 0' }}>
         <Button type="primary" onClick={() => store.addRow()}>
           Add Row
         </Button>

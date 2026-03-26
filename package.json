@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "max dev",
     "build": "max build",
-    "test": "jest --passWithNoTests"
+    "test": "jest --runInBand"
   },
   "repository": {
     "type": "git",

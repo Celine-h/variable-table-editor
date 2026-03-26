@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { observer } from "mobx-react-lite";
 import type { TableStore } from "@/stores/tableStore";
 import type { VariableItem } from "@/types/variable";
+import styles from "./EditableTable.module.scss";
 
 interface Iprops {
   store: TableStore;
@@ -45,7 +46,7 @@ export const EditableTable = observer(({ store }: Iprops) => {
         key: "index",
         width: 80,
         render: (_, __, index) => {
-          return <span>{index + 1}</span>;
+          return <span className={styles.automaticCell}>{index + 1}</span>;
         },
       },
       {
@@ -55,6 +56,7 @@ export const EditableTable = observer(({ store }: Iprops) => {
         render: (_, record) => {
           return (
             <Input
+              aria-label={`name-${record.id}`}
               value={getDraft(record.id, "name", record.name)}
               onChange={(event) =>
                 setDraft(record.id, "name", event.target.value)
@@ -128,6 +130,7 @@ export const EditableTable = observer(({ store }: Iprops) => {
         render: (_, record) => {
           return (
             <Input
+              aria-label={`comment-${record.id}`}
               value={getDraft(record.id, "comment", record.comment)}
               onChange={(event) =>
                 setDraft(record.id, "comment", event.target.value)
