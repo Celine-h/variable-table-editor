@@ -5,10 +5,10 @@ import {
   validateDefaultValue,
   validateName,
 } from "@/utils/validators";
+import { exportVarText, parseVarText } from "@/utils/Format";
+import { uid } from "@/utils/util";
 
-function uid() {
-  return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-}
+
 
 export class TableStore {
   rows: VariableItem[] = [];
@@ -41,7 +41,7 @@ export class TableStore {
   deleteRow() {
     if (!this.selectedRowId) {
       this.errorMsg = "Please select a row to delete";
-      return
+      return;
     }
     this.rows = this.rows.filter((e) => e.id !== this.selectedRowId);
     this.clearErrorMsg();
@@ -106,9 +106,35 @@ export class TableStore {
   // 更新comment
   updateComment(id: string, comment: string) {
     const target = this.rows.find((e) => e.id === id);
-    if (!target) return
+    if (!target) return;
 
     target.comment = comment;
+  }
+
+  setTextAreaValue(text: string) {
+    this.importExportText = text;
+  }
+
+  // Import
+  importText() {
+    const result = parseVarText(this.importExportText);
+    if (!result.ok) {
+      this.setErrorMsg(result.error);
+      return false;
+    }
+
+    this.rows = [];
+    this.rows = result.rows.map((row) => ({ ...row, id: uid() }));
+    this.selectedRowId = null;
+    this.clearErrorMsg();
+    return true;
+  }
+
+  // export
+  exportAsText() {
+    const result = exportVarText(this.rows);
+    this.importExportText = result;
+    this.clearErrorMsg()
   }
 
   clearErrorMsg() {

@@ -32,12 +32,13 @@ const HomePage = observer(() => {
       <Input.TextArea
         style={{ margin: "15px 0" }}
         value={store.importExportText}
+        onChange={(e)=>{store.setTextAreaValue(e.target.value)}}
         autoSize={{ minRows: 6, maxRows: 12 }}
         placeholder="Paste VAR...END_VAR text here"
       />
       <Space>
-        <Button>Import</Button>
-        <Button>Export</Button>
+        <Button onClick={()=>{store.importText()}}>Import</Button>
+        <Button onClick={() => store.exportAsText()}>Export</Button>
       </Space>
     </div>
   );

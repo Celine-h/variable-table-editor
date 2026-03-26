@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import HomePage from "@/pages/index";
 import { tableStore } from "@/stores/tableStore";
 import { values } from "mobx";
+import { uid } from "@/utils/util";
 describe("HomePage", () => {
   beforeEach(() => {
     tableStore.rows = [];
@@ -143,15 +144,90 @@ describe("HomePage", () => {
     expect(tableStore.errorMsg).toBe("INT default value is out of range");
   });
 
-  it('edit comment',()=>{
+  it("edit comment", () => {
     // AC8
-    render(<HomePage/>)
-    fireEvent.click(screen.getByText('Add Row'))
+    render(<HomePage />);
+    fireEvent.click(screen.getByText("Add Row"));
 
-    const commentInputs=screen.getAllByLabelText(/^comment-/)
+    const commentInputs = screen.getAllByLabelText(/^comment-/);
 
-    fireEvent.change(commentInputs[0],{target:{value:'any text'}})
-    fireEvent.blur(commentInputs[0])
-    expect(commentInputs[0]).toHaveValue('any text')
-  })
+    fireEvent.change(commentInputs[0], { target: { value: "any text" } });
+    fireEvent.blur(commentInputs[0]);
+    expect(commentInputs[0]).toHaveValue("any text");
+  });
+
+  it("imports valid text", () => {
+    // AC9
+    render(<HomePage />);
+    const textArea = screen.getByPlaceholderText(
+      "Paste VAR...END_VAR text here",
+    );
+    fireEvent.change(textArea, {
+      target: {
+        value: `VAR\nisReady : bool := FALSE;\ncounter : INT;\nEND_VAR`,
+      },
+    });
+    fireEvent.click(screen.getByText("Import"));
+    const defaultInputs = screen.getAllByLabelText(/^default-/);
+    expect(defaultInputs[0]).toHaveValue("FALSE");
+    expect(defaultInputs[1]).toHaveValue("0");
+  });
+
+  it("imports invalid text and shows error", () => {
+    // AC10
+    render(<HomePage />);
+    const textArea = screen.getByPlaceholderText(
+      "Paste VAR...END_VAR text here",
+    );
+    fireEvent.change(textArea, {
+      target: {
+        value: `VAR\nisReady : String := 'test';\ncounter : INT;\nEND_VAR`,
+      },
+    });
+    fireEvent.click(screen.getByText("Import"));
+    expect(screen.getByText(/Unsupported data type/)).toBeInTheDocument();
+
+    fireEvent.change(textArea, {
+      target: { value: `VAR\nisReady Bool false;\nEND_VAR` },
+    });
+    fireEvent.click(screen.getByText("Import"));
+    expect(
+      screen.getByText(/Format error at line 2, cannot parse/),
+    ).toBeInTheDocument();
+  });
+
+  it("export to standard text format", () => {
+    // AC11
+    render(<HomePage />);
+    tableStore.rows = [
+      {
+        id: "1",
+        name: "isReady",
+        dataType: "BOOL",
+        defaultValue: "TRUE",
+        comment: "System ready flag",
+      },
+      {
+        id: "2",
+        name: "counter",
+        dataType: "INT",
+        defaultValue: "0",
+        comment: "Counter",
+      },
+      {
+        id: "3",
+        name: "temperature",
+        dataType: "INT",
+        defaultValue: "",
+        comment: "",
+      },
+    ];
+
+    fireEvent.click(screen.getByText('Export'))
+
+    const textArea = screen.getByPlaceholderText('Paste VAR...END_VAR text here');
+    expect(textArea).toHaveValue(`VAR\nisReady : BOOL := TRUE; // System ready flag\ncounter : INT := 0; // Counter\ntemperature : INT;\nEND_VAR`);
+
+   
+  });
 });

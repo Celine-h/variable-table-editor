@@ -82,6 +82,7 @@ export const EditableTable = observer(({ store }: Iprops) => {
         render: (_, record) => {
           return (
             <Select
+              aria-label={`dataType-${record.id}`}
               placeholder="Select"
               value={record.dataType || undefined}
               onChange={(value) => {
@@ -106,6 +107,7 @@ export const EditableTable = observer(({ store }: Iprops) => {
         render: (_, record) => {
           return (
             <Input
+              aria-label={`default-${record.id}`}
               value={getDraft(record.id, "defaultValue", record.defaultValue)}
               onChange={(event) =>
                 setDraft(record.id, "defaultValue", event.target.value)

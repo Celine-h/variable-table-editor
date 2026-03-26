@@ -132,6 +132,8 @@
           "modifyRoutes": [
             0,
             0,
+            0,
+            0,
             0
           ]
         },
@@ -162,7 +164,31 @@
             4,
             4,
             2,
-            3
+            3,
+            6,
+            3,
+            5,
+            3,
+            4,
+            3,
+            2,
+            3,
+            2,
+            9,
+            5,
+            2,
+            5,
+            3,
+            2,
+            4,
+            2,
+            3,
+            6,
+            2,
+            2,
+            2,
+            3,
+            2
           ]
         },
         "register": 3
@@ -184,7 +210,9 @@
           "onGenerateFiles": [
             4,
             5,
-            4
+            4,
+            6,
+            17
           ]
         },
         "register": 36
@@ -203,6 +231,8 @@
           "addEntryCode": [
             0,
             1,
+            0,
+            0,
             0
           ]
         },
@@ -238,6 +268,27 @@
             0,
             1,
             1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
             0
           ],
           "onCheckCode": [
@@ -273,7 +324,31 @@
             0,
             0,
             1,
-            1
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
           ]
         },
         "register": 2
@@ -1290,6 +1365,29 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
           ]
         },
@@ -1309,9 +1407,13 @@
           "onGenerateFiles": [
             4,
             0,
-            1
+            1,
+            2,
+            2
           ],
           "addRuntimePlugin": [
+            0,
+            0,
             0,
             0,
             0
@@ -1390,9 +1492,15 @@
           "onGenerateFiles": [
             0,
             0,
+            0,
+            0,
             0
           ],
           "addEntryImports": [
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -1433,9 +1541,15 @@
           "onGenerateFiles": [
             124,
             20,
-            21
+            21,
+            59,
+            39
           ],
           "addPolyfillImports": [
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -1462,6 +1576,10 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
             0
           ]
         },
@@ -1480,6 +1598,8 @@
         "hooks": {
           "onGenerateFiles": [
             246,
+            0,
+            0,
             0,
             0
           ]
@@ -1526,6 +1646,8 @@
           "onGenerateFiles": [
             1,
             1,
+            1,
+            2,
             1
           ],
           "addBeforeMiddlewares": [
@@ -1551,7 +1673,11 @@
             11,
             6,
             9,
-            5
+            5,
+            26,
+            8,
+            24,
+            6
           ]
         },
         "register": 12
@@ -1583,7 +1709,9 @@
           "onGenerateFiles": [
             1,
             0,
-            1
+            1,
+            1,
+            0
           ],
           "onBeforeCompiler": [
             36
@@ -1617,7 +1745,9 @@
           "onGenerateFiles": [
             677,
             14,
-            14
+            14,
+            35,
+            35
           ]
         },
         "register": 5
@@ -1704,6 +1834,8 @@
           "onGenerateFiles": [
             4,
             1,
+            2,
+            3,
             2
           ]
         },
@@ -1856,6 +1988,29 @@
             0,
             0,
             1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -2261,9 +2416,15 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            1,
             0
           ],
           "addRuntimePlugin": [
+            0,
+            0,
             0,
             0,
             0
@@ -2271,12 +2432,16 @@
           "addRuntimePluginKey": [
             0,
             0,
+            0,
+            0,
             0
           ],
           "onGenerateFiles": [
             5,
             2,
-            1
+            1,
+            4,
+            3
           ],
           "addExtraBabelPlugins": [
             0
@@ -2313,9 +2478,13 @@
           "addRuntimePlugin": [
             0,
             0,
+            0,
+            0,
             0
           ],
           "addRuntimePluginKey": [
+            0,
+            0,
             0,
             0,
             0
@@ -2323,9 +2492,13 @@
           "onGenerateFiles": [
             4,
             1,
+            1,
+            2,
             1
           ],
           "addExtraModels": [
+            0,
+            0,
             0,
             0,
             0
@@ -2388,11 +2561,15 @@
           "addRuntimePlugin": [
             0,
             0,
+            0,
+            0,
             0
           ],
           "onGenerateFiles": [
             12,
             6,
+            8,
+            11,
             8
           ],
           "addTmpGenerateWatcherPaths": [
@@ -2426,6 +2603,8 @@
       "time": {
         "hooks": {
           "addRuntimePluginKey": [
+            0,
+            0,
             0,
             0,
             0
@@ -2484,12 +2663,16 @@
           "addRuntimePluginKey": [
             0,
             0,
+            0,
+            0,
             0
           ],
           "onGenerateFiles": [
             6,
             1,
-            2
+            2,
+            2,
+            3
           ]
         },
         "register": 2
@@ -2580,6 +2763,7 @@
         "hooks": {
           "onCheckPkgJSON": [
             1,
+            0,
             0
           ]
         },
@@ -3575,7 +3759,7 @@
       "id": "index",
       "file": "index.tsx",
       "absPath": "/",
-      "__content": "import { observer } from \"mobx-react-lite\";\r\nimport styles from \"./index.module.scss\";\r\nimport { Alert, Button, Input, Space, Typography } from \"antd\";\r\nimport { EditableTable } from \"@/components/EditableTable\";\r\nimport { tableStore } from \"@/stores/tableStore\";\r\n\r\nconst HomePage = observer(() => {\r\n  const store = tableStore;\r\n  return (\r\n    <div className={styles.container}>\r\n      <Typography.Title>Variable Table Editor</Typography.Title>\r\n      {store.errorMsg && (\r\n        <Alert\r\n          type=\"error\"\r\n          description={store.errorMsg}\r\n          onClose={() => {\r\n            store.clearErrorMsg();\r\n          }}\r\n        />\r\n      )}\r\n\r\n      <Space style={{ marginBottom: 15 }}>\r\n        <Button type=\"primary\" onClick={() => store.addRow()}>\r\n          Add Row\r\n        </Button>\r\n        <Button type=\"default\" danger onClick={() => store.deleteRow()}>\r\n          Delete Row\r\n        </Button>\r\n      </Space>\r\n\r\n      <EditableTable store={store} />\r\n      <Input.TextArea\r\n        style={{ margin: \"15px 0\" }}\r\n        value={store.importExportText}\r\n        autoSize={{ minRows: 6, maxRows: 12 }}\r\n        placeholder=\"Paste VAR...END_VAR text here\"\r\n      />\r\n      <Space>\r\n        <Button>Import</Button>\r\n        <Button>Export</Button>\r\n      </Space>\r\n    </div>\r\n  );\r\n});\r\n\r\nexport default HomePage;\r\n",
+      "__content": "import { observer } from \"mobx-react-lite\";\r\nimport styles from \"./index.module.scss\";\r\nimport { Alert, Button, Input, Space, Typography } from \"antd\";\r\nimport { EditableTable } from \"@/components/EditableTable\";\r\nimport { tableStore } from \"@/stores/tableStore\";\r\n\r\nconst HomePage = observer(() => {\r\n  const store = tableStore;\r\n  return (\r\n    <div className={styles.container}>\r\n      <Typography.Title>Variable Table Editor</Typography.Title>\r\n      {store.errorMsg && (\r\n        <Alert\r\n          type=\"error\"\r\n          description={store.errorMsg}\r\n          onClose={() => {\r\n            store.clearErrorMsg();\r\n          }}\r\n        />\r\n      )}\r\n\r\n      <Space style={{ margin: '15px 0' }}>\r\n        <Button type=\"primary\" onClick={() => store.addRow()}>\r\n          Add Row\r\n        </Button>\r\n        <Button type=\"default\" danger onClick={() => store.deleteRow()}>\r\n          Delete Row\r\n        </Button>\r\n      </Space>\r\n\r\n      <EditableTable store={store} />\r\n      <Input.TextArea\r\n        style={{ margin: \"15px 0\" }}\r\n        value={store.importExportText}\r\n        onChange={(e)=>{store.setTextAreaValue(e.target.value)}}\r\n        autoSize={{ minRows: 6, maxRows: 12 }}\r\n        placeholder=\"Paste VAR...END_VAR text here\"\r\n      />\r\n      <Space>\r\n        <Button onClick={()=>{store.importText()}}>Import</Button>\r\n        <Button>Export</Button>\r\n      </Space>\r\n    </div>\r\n  );\r\n});\r\n\r\nexport default HomePage;\r\n",
       "__isJSFile": true,
       "__absFile": "D:/coding/variable-table-editor/src/pages/index.tsx"
     }
@@ -4732,7 +4916,7 @@
             "format": "esm"
           },
           "src/components/EditableTable.tsx": {
-            "bytes": 4863,
+            "bytes": 5066,
             "imports": [
               {
                 "path": "antd",
@@ -4767,8 +4951,19 @@
             "imports": [],
             "format": "esm"
           },
+          "src/utils/Format.ts": {
+            "bytes": 3022,
+            "imports": [
+              {
+                "path": "src/utils/validators.ts",
+                "kind": "import-statement",
+                "original": "./validators"
+              }
+            ],
+            "format": "esm"
+          },
           "src/stores/tableStore.ts": {
-            "bytes": 2837,
+            "bytes": 3297,
             "imports": [
               {
                 "path": "mobx",
@@ -4779,12 +4974,17 @@
                 "path": "src/utils/validators.ts",
                 "kind": "import-statement",
                 "original": "@/utils/validators"
+              },
+              {
+                "path": "src/utils/Format.ts",
+                "kind": "import-statement",
+                "original": "@/utils/Format"
               }
             ],
             "format": "esm"
           },
           "src/pages/index.tsx": {
-            "bytes": 1337,
+            "bytes": 1475,
             "imports": [
               {
                 "path": "mobx-react-lite",
@@ -6482,16 +6682,19 @@
             "entryPoint": "src/.umi/umi.ts",
             "inputs": {
               "src/components/EditableTable.tsx": {
-                "bytesInOutput": 5084
+                "bytesInOutput": 5306
               },
               "src/utils/validators.ts": {
-                "bytesInOutput": 1201
+                "bytesInOutput": 1288
+              },
+              "src/utils/Format.ts": {
+                "bytesInOutput": 1981
               },
               "src/stores/tableStore.ts": {
-                "bytesInOutput": 3028
+                "bytesInOutput": 3511
               },
               "src/pages/index.tsx": {
-                "bytesInOutput": 1874
+                "bytesInOutput": 2073
               },
               "src/.umi/core/polyfill.ts": {
                 "bytesInOutput": 21184
@@ -6554,7 +6757,7 @@
                 "bytesInOutput": 968
               }
             },
-            "bytes": 55241
+            "bytes": 58237
           }
         }
       }
