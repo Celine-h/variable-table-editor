@@ -2,6 +2,9 @@
 
 技术栈：`Umi4 + React + Ts + Mobx + Sass + Antd `实现项目搭建、基础功能以及状态管理，`Jest + React-Test-Library`实现单元测试。
 
+git地址：https://github.com/Celine-h/variable-table-editor.git
+
+
 ## 本地启动
 
 ```bash
@@ -24,8 +27,11 @@ npm test
 - `src/stores/tableStore.ts`:全局状态管理
 - `src/utils/validators.ts`: 输入校验
 - `src/utils/format.ts`: 导入导出格式转换
-- `src/styles/*.scss`: 全局与模块样式
+- `src/styles/*.scss`: 全局样式
 - `tests/*`: 单元测试
+- `doc/design.md`: 设计文档
+- `doc/aiUsageRecords.md`: ai使用记录
+- `commit-log.txt`: 提交记录
 
 
 ## 功能说明
