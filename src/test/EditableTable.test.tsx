@@ -1,15 +1,20 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import HomePage from "@/pages/index";
 import { tableStore } from "@/stores/tableStore";
+import { runInAction } from "mobx";
 import { values } from "mobx";
 import { uid } from "@/utils/util";
+
 describe("HomePage", () => {
   beforeEach(() => {
-    tableStore.rows = [];
-    tableStore.selectedRowId = null;
-    tableStore.errorMsg = "";
-    tableStore.importExportText = "";
+    runInAction(() => {
+      tableStore.rows = [];
+      tableStore.selectedRowId = null;
+      tableStore.errorMsg = "";
+      tableStore.importExportText = "";
+    });
   });
+
   it("Table an empty table with expected columns and core buttons", () => {
     // AC1
     render(<HomePage />);
@@ -199,31 +204,33 @@ describe("HomePage", () => {
   it("export to standard text format", () => {
     // AC11
     render(<HomePage />);
-    tableStore.rows = [
-      {
-        id: "1",
-        name: "isReady",
-        dataType: "BOOL",
-        defaultValue: "TRUE",
-        comment: "System ready flag",
-      },
-      {
-        id: "2",
-        name: "counter",
-        dataType: "INT",
-        defaultValue: "0",
-        comment: "Counter",
-      },
-      {
-        id: "3",
-        name: "temperature",
-        dataType: "INT",
-        defaultValue: "",
-        comment: "",
-      },
-    ];
+    runInAction(() => {
+      tableStore.rows = [
+        {
+          id: "1",
+          name: "isReady",
+          dataType: "BOOL",
+          defaultValue: "TRUE",
+          comment: "System ready flag",
+        },
+        {
+          id: "2",
+          name: "counter",
+          dataType: "INT",
+          defaultValue: "0",
+          comment: "Counter",
+        },
+        {
+          id: "3",
+          name: "temperature",
+          dataType: "INT",
+          defaultValue: "",
+          comment: "",
+        },
+      ];
+    });
 
-    fireEvent.click(screen.getByText('Export'))
+    fireEvent.click(screen.getByText('Export'));
 
     const textArea = screen.getByPlaceholderText('Paste VAR...END_VAR text here');
     expect(textArea).toHaveValue(`VAR\nisReady : BOOL := TRUE; // System ready flag\ncounter : INT := 0; // Counter\ntemperature : INT;\nEND_VAR`);

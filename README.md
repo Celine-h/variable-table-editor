@@ -28,7 +28,7 @@ npm test
 - `src/utils/validators.ts`: 输入校验
 - `src/utils/format.ts`: 导入导出格式转换
 - `src/styles/*.scss`: 全局样式
-- `tests/*`: 单元测试
+- `src/test/tableStore.test.ts`: 单元测试
 - `doc/design.md`: 设计文档
 - `doc/aiUsageRecords.md`: ai使用记录
 - `commit-log.txt`: 提交记录
